@@ -6,15 +6,10 @@ function Header() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src = {logo}></img>
-        
+        <img className="logo" src = {logo}></img>
       </header>
-
     </div>
-    
     );
   }
-
-
 
 export default Header;

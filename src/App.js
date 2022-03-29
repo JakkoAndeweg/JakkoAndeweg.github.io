@@ -5,32 +5,6 @@ import './App.css';
 import thermometer from './pictures/thermo-removebg-preview.png'
 import epicLine from './pictures/epicLineFinished.png'  
 
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <h>STIMULAR</h>
-        
-//       </header>
-//       <body>
-//     <button type="button" class="collapsible">Open Collapsible</button>
-// <div class="content">
-//   <p>Lorem ipsum...</p>
-// </div>
-
-//      <div className="vraag">
-//        <h>Vraag 1</h>
-//        <p>dit is vraag 1</p>
-//        <textarea>   Hello there, this is some text in a text area</textarea>
-//      </div>
-
-//      <div id="test_button_container"></div>
-
-//      <Welcome name="Sara" />
-
-     
-
-
 class App extends React.Component {
 
   static defaultProps = {
@@ -115,17 +89,9 @@ class App extends React.Component {
     event.preventDefault();
   }
 
-    
-
   render() {
     const {isOpened} = this.state;
     return (
-      
-      
-      
-      
-        
-      
       
       <form onSubmit={this.handleSubmit}>
         <div className="vraag">
@@ -194,24 +160,9 @@ class App extends React.Component {
         </div>
         <div><img src = {thermometer} alt="thermometer" width="500" height="400"></img></div>
         <div><img src = {epicLine} alt="Line" width="100" height="10"></img></div>
-
-        
       </form>
-      
-      
     );
   }
 }
-
              
-
-
-             
-//   </body>
-//     </div>
-//   );
-// }
-
-
-
 export default App;

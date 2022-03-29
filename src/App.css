@@ -5,6 +5,7 @@
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -14,18 +15,19 @@
 }
 
 .App-header {
-  background-color: #c5c5c5;
+  background-color: #f3f3f3;
   min-height: 10vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: rgb(0, 0, 0);
-  
 }
 
-
+.logo {
+  height: 50px;
+  width: 100px;
+}
 
 .App-link {
   color: #61dafb;
@@ -41,7 +43,7 @@
 }
 
 body {
-  background-color: #61B32A;
+  background-color: #ffffff;
 }
 
 .vraag{
