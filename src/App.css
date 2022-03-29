@@ -15,7 +15,7 @@
 }
 
 .App-header {
-  background-color: #f3f3f3;
+  background-color: #ffffff;
   min-height: 10vh;
   display: flex;
   flex-direction: column;
@@ -23,6 +23,7 @@
   font-size: calc(10px + 2vmin);
   color: rgb(0, 0, 0);
 }
+
 
 .logo {
   height: 50px;
@@ -47,7 +48,7 @@ body {
 }
 
 .vraag{
-  background-color: #c5c5c5;
+  background-color: #ffffff;
   margin: 90px;
   display: flex;
   flex-direction: column;
