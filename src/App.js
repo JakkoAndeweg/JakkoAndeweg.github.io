@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import {Collapse} from 'react-collapse';
 import collapse from './dropdown.png';
 import './App.css';
+import thermometer from './pictures/thermo-removebg-preview.png'
+import epicLine from './pictures/epicLineFinished.png'  
 
 // function App() {
 //   return (
@@ -61,12 +63,55 @@ class App extends React.Component {
     
   }
 
-  
-
   handleSubmit(event) {
+    var v1p = 0;
+    var v2p = 0;
+    var v3p = 0;
+   
+   
+    if (this.state.gender == "MALE")
+    {
+      v1p = 100
+    }
+    else
+    {
+      v1p = 200
+    }
+  
+  
+    if (this.state.user == 'yooo')
+    {
+      v2p = 200
+    }
+    else 
+    {
+      v2p=0
+    }
+  
+  
+    if(this.state.favourite =="grapefruit")
+    {
+      v3p = 50
+    }
+    else if (this.state.favourite =="lime")
+    {
+      v3p = 100
+    }
+    else if (this.state.favourite =="coconut")
+    {
+      v3p = 150
+    }  
+    else if (this.state.favourite =="mango")
+    {
+      v3p = 200
+    }
+    var totalPoints = v1p + v2p + v3p;
+  
     alert('A name was submitted: ' + this.state.user +
           '\n their favourite food is:' + this.state.favourite +
-          '\n their gender is:' + this.state.gender);
+          '\n their gender is:' + this.state.gender+
+          '\n total points:' + (totalPoints));
+          
     event.preventDefault();
   }
 
@@ -147,6 +192,10 @@ class App extends React.Component {
           <input type="submit" value="Submit" />
         </label>
         </div>
+        <div><img src = {thermometer} alt="thermometer" width="500" height="400"></img></div>
+        <div><img src = {epicLine} alt="Line" width="100" height="10"></img></div>
+
+        
       </form>
       
       
