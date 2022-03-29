@@ -107,6 +107,7 @@ class App extends React.Component {
               checked={isOpened}
               onChange={({target: {checked}}) => this.setState({isOpened: checked})} />
               <label for="checkbox1"><img src={collapse} className="imgButton" /></label>
+              <h3>A. FOCUS BEPALEN</h3>
         <Collapse isOpened={isOpened}>
         
           <div className="vraag">
@@ -128,7 +129,8 @@ class App extends React.Component {
             id='checkbox2'
             checked={isOpened}
             onChange={({target: {checked}}) => this.setState({isOpened: checked})} />
-              <label for="checkbox2"><img src={collapse} className="imgButton" /></label>
+            <label for="checkbox2"><img src={collapse} className="imgButton" /></label>
+            <h3>MVO-DOELEN STELLEN</h3>
           <Collapse isOpened={isOpened}>
           
           <div className='vraag'>
@@ -150,7 +152,8 @@ class App extends React.Component {
               id='checkbox2'
               checked={isOpened}
               onChange={({target: {checked}}) => this.setState({isOpened: checked})} />
-                <label for="checkbox2"><img src={collapse} className="imgButton" /></label>
+              <label for="checkbox2"><img src={collapse} className="imgButton" /></label>
+              <h3>C. MAATREGELEN UITVOEREN</h3>
             <Collapse isOpened={isOpened}>
           
           <label>
@@ -183,7 +186,8 @@ class App extends React.Component {
               id='checkbox2'
               checked={isOpened}
               onChange={({target: {checked}}) => this.setState({isOpened: checked})} />
-                <label for="checkbox2"><img src={collapse} className="imgButton" /></label>
+              <label for="checkbox2"><img src={collapse} className="imgButton" /></label>
+              <h3>D. MONITOREN VAN DE VOORTGANG</h3>
             <Collapse isOpened={isOpened}>
           
           <label>
@@ -216,7 +220,8 @@ class App extends React.Component {
               id='checkbox2'
               checked={isOpened}
               onChange={({target: {checked}}) => this.setState({isOpened: checked})} />
-                <label for="checkbox2"><img src={collapse} className="imgButton" /></label>
+              <label for="checkbox2"><img src={collapse} className="imgButton" /></label>
+              <h3>E. COMMUNICEREN OVER MVO</h3>
             <Collapse isOpened={isOpened}>
           
           <label>
