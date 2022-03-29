@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import {Collapse} from 'react-collapse';
+import collapse from './dropdown.png';
 import './App.css';
 import thermometer from './pictures/thermo-removebg-preview.png'
 import epicLine from './pictures/epicLineFinished.png'  
@@ -28,12 +29,18 @@ import epicLine from './pictures/epicLineFinished.png'
 //      <Welcome name="Sara" />
 
      
-      
+
 
 class App extends React.Component {
+
+  static defaultProps = {
+    isOpened: true
+  };
+
   constructor(props) {
     super(props);
     this.state = {value: '',
+    
     check: true};
 
     this.handleChange = this.handleChange.bind(this);
@@ -56,7 +63,6 @@ class App extends React.Component {
     
   }
 
- 
   handleSubmit(event) {
     var v1p = 0;
     var v2p = 0;
@@ -109,17 +115,29 @@ class App extends React.Component {
     event.preventDefault();
   }
 
-  
+    
 
   render() {
+    const {isOpened} = this.state;
     return (
       
       
-    
+      
+      
         
       
-
+      
       <form onSubmit={this.handleSubmit}>
+        <div className="vraag">
+        {/* <img src = {collapse} onClick={onChange={}}></img> */}
+           <input
+              className="checkboxinvis"
+              type="checkbox"
+              id='checkbox1'
+              checked={isOpened}
+              onChange={({target: {checked}}) => this.setState({isOpened: checked})} />
+              <label for="checkbox1"><img src={collapse} className="imgButton" /></label>
+        <Collapse isOpened={isOpened}>
         <div className="vraag">
         <h>Vraag 1</h>
         <p>dit is vraag 1</p>
@@ -145,6 +163,8 @@ class App extends React.Component {
       </div>
 
         <br />
+        </div>
+        </Collapse>
         </div>
         <br />
         <div className="vraag">

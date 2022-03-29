@@ -41,7 +41,7 @@
 }
 
 body {
-  background-color: #51e0a7;
+  background-color: #61B32A;
 }
 
 .vraag{
@@ -53,4 +53,12 @@ body {
   justify-content: center;
   padding: 40px;
   border-radius: 10px;
+}
+
+.imgButton{
+  width: 5%;
+}
+
+.checkboxinvis{
+  opacity:0;
 }
