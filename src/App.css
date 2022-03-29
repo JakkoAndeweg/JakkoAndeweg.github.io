@@ -15,7 +15,7 @@
 }
 
 .App-header {
-  background-color: #ffffff;
+  background-color: #e3e3e3;
   min-height: 10vh;
   display: flex;
   flex-direction: column;
@@ -48,7 +48,7 @@ body {
 }
 
 .vraag{
-  background-color: #ffffff;
+  background-color: #e3e3e3;
   margin: 90px;
   display: flex;
   flex-direction: column;
