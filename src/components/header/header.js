@@ -4,12 +4,10 @@ import logo from './stimular.png';
 
 function Header() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img className="logo" src = {logo}></img>
-      </header>
+    <div className="navbar">
+      <img id='logo' src = {logo}></img>
     </div>
-    );
-  }
+  );
+}
 
 export default Header;
