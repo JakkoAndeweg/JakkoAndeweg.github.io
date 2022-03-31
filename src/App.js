@@ -2,8 +2,13 @@ import React, { Component } from 'react';
 import {Collapse} from 'react-collapse';
 import collapse from './dropdown.png';
 import './App.css';
-import thermometer from './pictures/thermo-removebg-preview.png'
+
 import epicLine from './pictures/epicLineFinished.png'  
+import thermometer from './pictures/undefined.png'
+import thermohoog from './pictures/thermo-hoog.png'
+import thermolaag from './pictures/thermo-laag.png'
+import thermomid from './pictures/thermo-mid.png'
+
 
 // function App() {
 //   return (
@@ -107,6 +112,21 @@ class App extends React.Component {
       v3p = 200
     }
     var totalPoints = v1p + v2p + v3p;
+
+    var meter = 'thermometer';
+    console.log(meter)
+   
+    if(this.state.totalPoints <=100){
+      meter = 'thermohoog' 
+      console.log(meter)
+    }else if(this.state.totalPoints <=200){
+      meter = 'thermohoog'
+      console.log(meter)
+    }else{
+      meter = 'thermohoog'
+      console.log(meter)
+    }
+
   
     alert('A name was submitted: ' + this.state.user +
           '\n their favourite food is:' + this.state.favourite +
@@ -234,8 +254,7 @@ class App extends React.Component {
           <input type="submit" value="Submit" />
         </label>
         </div>
-        <div><img src = {thermometer} alt="thermometer" width="500" height="400"></img></div>
-        <div><img src = {epicLine} alt="Line" width="100" height="10"></img></div>
+        <img src = {this.meter} alt="thermometer" className='thermo' ></img>
 
         
       </form>
