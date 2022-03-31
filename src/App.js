@@ -32,7 +32,8 @@ import './App.css';
 class App extends React.Component {
 
   static defaultProps = {
-    isOpened: true
+    isOpened: true,
+    isOpened2: true
   };
 
   constructor(props) {
@@ -74,6 +75,7 @@ class App extends React.Component {
 
   render() {
     const {isOpened} = this.state;
+    const {isOpened2} = this.state;
     return (
       
       
@@ -92,7 +94,47 @@ class App extends React.Component {
               checked={isOpened}
               onChange={({target: {checked}}) => this.setState({isOpened: checked})} />
               <label for="checkbox1"><img src={collapse} className="imgButton" /></label>
+              <label> VRAAG 1 </label>
         <Collapse isOpened={isOpened}>
+        <div className="vraag">
+        <h>Vraag 1</h>
+        <p>dit is vraag 1</p>
+      {/* <label>
+          ja:
+          <input
+            name="ja"
+            type="checkbox"
+            checked={this.state.isGoing}
+            onChange={this.handleInputChange} />
+            </label>
+            <label>
+              Nee:
+           <input
+            name="nee"
+            type="checkbox"
+            checked={this.state.isGoing}
+            onChange={this.handleInputChange} />
+        </label> */}
+      <div name="gender" onChange={this.handleInputChange}>
+        <input type="radio" value="MALE" name="gender"/> Male
+        <input type="radio" value="FEMALE" name="gender"/> Female
+      </div>
+
+        <br />
+        </div>
+        </Collapse>
+        </div>
+        <div className="vraag">
+        {/* <img src = {collapse} onClick={onChange={}}></img> */}
+           <input
+              className="checkboxinvis"
+              type="checkbox"
+              id='checkbox2'
+              checked={isOpened2}
+              onChange={({target: {checked}}) => this.setState({isOpened2: checked})} />
+              <label for="checkbox2"><img src={collapse} className="imgButton" /></label>
+              <label> VRAAG 1 </label>
+        <Collapse isOpened={isOpened2}>
         <div className="vraag">
         <h>Vraag 1</h>
         <p>dit is vraag 1</p>
