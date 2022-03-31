@@ -68,20 +68,20 @@ class App extends React.Component {
     this.setState({value: event.target.value});
     
   }
-
-  handleSubmit(event) {
+  createPoints(needed)
+  {
     var v1p = 0;
     var v2p = 0;
     var v3p = 0;
-   
+  
    
     if (this.state.gender == "MALE")
     {
-      v1p = 100
+      v1p = 200
     }
     else
     {
-      v1p = 200
+      v1p = 100
     }
   
   
@@ -91,7 +91,7 @@ class App extends React.Component {
     }
     else 
     {
-      v2p=0
+      v2p=10
     }
   
   
@@ -111,27 +111,54 @@ class App extends React.Component {
     {
       v3p = 200
     }
-    var totalPoints = v1p + v2p + v3p;
+      var totalPoints = v1p + v2p + v3p;
+      if (needed== 1)
+      {
+      return totalPoints
+      }
+      else if (needed==2)
+      {
+        return v1p
+      }
+      else if (needed==3)
+      {
+        return v2p
+      }
+      else if (needed==4)
+      {
+        return v3p
+      }
+  }
 
+  createThermo()
+  { var totalPoints=this.createPoints(1)
     var meter = 'thermometer';
     console.log(meter)
    
-    if(this.state.totalPoints <=100){
-      meter = 'thermohoog' 
+    if(totalPoints <=300){
+      meter = thermolaag 
       console.log(meter)
-    }else if(this.state.totalPoints <=200){
-      meter = 'thermohoog'
+      return meter
+    }else if(totalPoints <=400){
+      meter = thermomid
       console.log(meter)
+      return meter
     }else{
-      meter = 'thermohoog'
+      meter = thermohoog
       console.log(meter)
+      return meter
     }
+  }
+  handleSubmit(event) {
+   
+
+ 
 
   
-    alert('A name was submitted: ' + this.state.user +
-          '\n their favourite food is:' + this.state.favourite +
-          '\n their gender is:' + this.state.gender+
-          '\n total points:' + (totalPoints));
+    // alert('A name was submitted: ' + this.state.user +
+    //       '\n their favourite food is:' + this.state.favourite +
+    //       '\n their gender is:' + this.state.gender+
+    //       '\n total points:' + (totalPoints));
           
     event.preventDefault();
   }
@@ -254,7 +281,7 @@ class App extends React.Component {
           <input type="submit" value="Submit" />
         </label>
         </div>
-        <img src = {this.meter} alt="thermometer" className='thermo' ></img>
+        <img src = {this.createThermo()} alt="thermometer" className='thermo' ></img>
 
         
       </form>
