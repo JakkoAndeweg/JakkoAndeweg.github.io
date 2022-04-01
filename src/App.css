@@ -1,7 +1,3 @@
-.App {
-  text-align: center;
-}
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -14,19 +10,13 @@
   }
 }
 
-.App-header {
-  background-color: #f3f3f3;
-  min-height: 10vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: rgb(0, 0, 0);
+.navbar{
+  background-color: #e3e3e3;
+  min-height: 7vh;
 }
 
-.logo {
-  height: 50px;
-  width: 100px;
+#logo{
+  margin: 20px;
 }
 
 .App-link {
@@ -47,8 +37,8 @@ body {
 }
 
 .vraag{
-  background-color: #c5c5c5;
-  margin: 90px;
+  background-color: #e3e3e3;
+  margin: 70px;
   display: flex;
   flex-direction: column;
   align-items: center;
