@@ -4,6 +4,11 @@ import collapse from './dropdown.png';
 import './App.css';
 import thermometer from './pictures/thermo-removebg-preview.png'
 import epicLine from './pictures/epicLineFinished.png'  
+import thermohoog from './pictures/thermo-hoog.png'
+import thermolaag from './pictures/thermo-laag.png'
+import thermomid from './pictures/thermo-mid.png'
+
+
 
 class App extends React.Component {
 
@@ -21,35 +26,21 @@ class App extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
   }
-
-  handleInputChange(event) {
-    const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    const name = target.name;
-
-    this.setState({
-      [name]: value
-    });
-  }
-
-  handleChange(event) {
-    this.setState({value: event.target.value});
-    
-  }
-
-  handleSubmit(event) {
+  
+  createPoints(needed)
+  {
     var v1p = 0;
     var v2p = 0;
     var v3p = 0;
-   
+  
    
     if (this.state.gender == "MALE")
     {
-      v1p = 100
+      v1p = 200
     }
     else
     {
-      v1p = 200
+      v1p = 100
     }
   
   
@@ -59,7 +50,7 @@ class App extends React.Component {
     }
     else 
     {
-      v2p=0
+      v2p=10
     }
   
   
@@ -79,23 +70,119 @@ class App extends React.Component {
     {
       v3p = 200
     }
-    var totalPoints = v1p + v2p + v3p;
-  
-    alert('A name was submitted: ' + this.state.user +
-          '\n their favourite food is:' + this.state.favourite +
-          '\n their gender is:' + this.state.gender+
-          '\n total points:' + (totalPoints));
-          
-    event.preventDefault();
+      var totalPoints = v1p + v2p + v3p;
+      if (needed== 1)
+      {
+      return totalPoints
+      }
+      else if (needed==2)
+      {
+        return v1p
+      }
+      else if (needed==3)
+      {
+        return v2p
+      }
+      else if (needed==4)
+      {
+        return v3p
+      }
   }
+  customAdvise()
+  {
+
+    var pointsArray = [this.createPoints(2),this.createPoints(3),this.createPoints(4)];
+    
+    var lowest = 0
+    for (var i=0; i<pointsArray.length; i++)
+    {
+      if (pointsArray[i]<pointsArray[lowest])
+      {
+        lowest =i
+      }
+    }
+
+    if(pointsArray[0]==0||pointsArray[1]==0||pointsArray[2]==0)
+    {
+      return "please fill in the questions"
+    }
+    else{
+    if(lowest==0)
+    {
+      return "You are a Man named yooo who likes mangos or coconuts"
+    }
+    else if (lowest==1)
+    {
+      return "you are not named yooo"
+    }
+    else if (lowest==2)
+    {
+      return "you like grapefruit"
+    }
+    }
+  }
+
+  createThermo()
+  { var totalPoints=this.createPoints(1)
+    var meter = 'thermometer';
+    console.log(meter)
+   
+    if(totalPoints <=300){
+      meter = thermolaag 
+      console.log(meter)
+      return meter
+    }else if(totalPoints <=400){
+      meter = thermomid
+      console.log(meter)
+      return meter
+    }else{
+      meter = thermohoog
+      console.log(meter)
+      return meter
+    }
+  }
+
+  handleInputChange(event) {
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const name = target.name;
+
+    this.setState({
+      [name]: value
+    });
+  }
+
+  handleChange(event) {
+    this.setState({value: event.target.value});
+    
+  }
+
+  handleSubmit(event) {
+   
+  
+    // alert('A name was submitted: ' + this.state.user +
+    //       '\n their favourite food is:' + this.state.favourite +
+    //       '\n their gender is:' + this.state.gender+
+    //       '\n total points:' + (this.createPoints(1))
+    //       +
+    //       '\n' + this.customAdvise()); 
+    event.preventDefault()
+  }
+
+    
 
   render() {
     const {isOpened} = this.state;
     return (
       
+      
+      
+      
+        
+      
+      
       <form onSubmit={this.handleSubmit}>
         <div className="vraag">
-        {/* <img src = {collapse} onClick={onChange={}}></img> */}
            <input
               className="checkboxinvis"
               type="checkbox"
@@ -107,22 +194,6 @@ class App extends React.Component {
         <div className="vraag">
         <h>Vraag 1</h>
         <p>dit is vraag 1</p>
-      {/* <label>
-          ja:
-          <input
-            name="ja"
-            type="checkbox"
-            checked={this.state.isGoing}
-            onChange={this.handleInputChange} />
-            </label>
-            <label>
-              Nee:
-           <input
-            name="nee"
-            type="checkbox"
-            checked={this.state.isGoing}
-            onChange={this.handleInputChange} />
-        </label> */}
       <div name="gender" onChange={this.handleInputChange}>
         <input type="radio" value="MALE" name="gender"/> Male
         <input type="radio" value="FEMALE" name="gender"/> Female
@@ -155,14 +226,19 @@ class App extends React.Component {
           </select>
           <br></br>
           <br></br>
-          <input type="submit" value="Submit" />
+          <input type="submit" value="Submit"/>
+        
         </label>
         </div>
-        <div><img src = {thermometer} alt="thermometer" width="500" height="400"></img></div>
-        <div><img src = {epicLine} alt="Line" width="100" height="10"></img></div>
+        <img src = {this.createThermo()} alt="thermometer" className='thermo' ></img>
+
+        <div>{this.customAdvise()}</div>
       </form>
+      
+     
     );
   }
 }
+
              
 export default App;
