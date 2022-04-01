@@ -4,6 +4,9 @@ import collapse from './dropdown.png';
 import './App.css';
 import thermometer from './pictures/thermo-removebg-preview.png'
 import epicLine from './pictures/epicLineFinished.png'  
+import thermohoog from './pictures/thermo-hoog.png'
+import thermolaag from './pictures/thermo-laag.png'
+import thermomid from './pictures/thermo-mid.png'
 
 
 
@@ -23,7 +26,7 @@ class App extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
   }
-
+  
   createPoints(needed)
   {
     var v1p = 0;
@@ -33,11 +36,11 @@ class App extends React.Component {
    
     if (this.state.gender == "MALE")
     {
-      v1p = 100
+      v1p = 200
     }
     else
     {
-      v1p = 200
+      v1p = 100
     }
   
   
@@ -47,7 +50,7 @@ class App extends React.Component {
     }
     else 
     {
-      v2p=0
+      v2p=10
     }
   
   
@@ -87,7 +90,9 @@ class App extends React.Component {
   }
   customAdvise()
   {
+
     var pointsArray = [this.createPoints(2),this.createPoints(3),this.createPoints(4)];
+    
     var lowest = 0
     for (var i=0; i<pointsArray.length; i++)
     {
@@ -97,6 +102,11 @@ class App extends React.Component {
       }
     }
 
+    if(pointsArray[0]==0||pointsArray[1]==0||pointsArray[2]==0)
+    {
+      return "please fill in the questions"
+    }
+    else{
     if(lowest==0)
     {
       return "You are a Man named yooo who likes mangos or coconuts"
@@ -109,7 +119,27 @@ class App extends React.Component {
     {
       return "you like grapefruit"
     }
-  
+    }
+  }
+
+  createThermo()
+  { var totalPoints=this.createPoints(1)
+    var meter = 'thermometer';
+    console.log(meter)
+   
+    if(totalPoints <=300){
+      meter = thermolaag 
+      console.log(meter)
+      return meter
+    }else if(totalPoints <=400){
+      meter = thermomid
+      console.log(meter)
+      return meter
+    }else{
+      meter = thermohoog
+      console.log(meter)
+      return meter
+    }
   }
 
   handleInputChange(event) {
@@ -130,14 +160,13 @@ class App extends React.Component {
   handleSubmit(event) {
    
   
-    alert('A name was submitted: ' + this.state.user +
-          '\n their favourite food is:' + this.state.favourite +
-          '\n their gender is:' + this.state.gender+
-          '\n total points:' + (this.createPoints(1))
-          +
-          '\n' + this.customAdvise()); 
-          
-    event.preventDefault();
+    // alert('A name was submitted: ' + this.state.user +
+    //       '\n their favourite food is:' + this.state.favourite +
+    //       '\n their gender is:' + this.state.gender+
+    //       '\n total points:' + (this.createPoints(1))
+    //       +
+    //       '\n' + this.customAdvise()); 
+    event.preventDefault()
   }
 
     
@@ -197,16 +226,16 @@ class App extends React.Component {
           </select>
           <br></br>
           <br></br>
-          <input type="submit" value="Submit" />
+          <input type="submit" value="Submit"/>
+        
         </label>
         </div>
-        <div><img src = {thermometer} alt="thermometer" width="500" height="400"></img></div>
-        <div><img src = {epicLine} alt="Line" width="100" height="10"></img></div>
+        <img src = {this.createThermo()} alt="thermometer" className='thermo' ></img>
 
-        
+        <div>{this.customAdvise()}</div>
       </form>
       
-      
+     
     );
   }
 }
