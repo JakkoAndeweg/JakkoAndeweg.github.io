@@ -185,22 +185,31 @@ class App extends React.Component {
     
     return (
       <form onSubmit={this.handleSubmit}>
-        <div className="vraag">
+        <div className="vraag">  
+        <label for="checkbox1"><img src={collapse} className="imgButton1" /></label>
            <input
               className="checkboxinvis"
               type="checkbox"
               id='checkbox1'
               checked={isOpened}
               onChange={({target: {checked}}) => this.setState({isOpened: checked})} />
-              <label for="checkbox1"><img src={collapse} className="imgButton" /></label>
-              <h3>A. FOCUS BEPALEN</h3>
-        <Collapse isOpened={isOpened}>
+              <h3>Een beter milieu</h3>
+            <Collapse isOpened={isOpened}>
         
           <div className="vraag">
-            <b><p>MVO is een veelomvattend begrip. Bepaal de belangrijkste MVO-thema’s voor jouw bedrijf of organisatie, als eerste belangrijke stap.</p></b>
-            <h>MVO IS EEN BREED BEGRIP</h>
-            <p>Bepaal de belangrijkste MVO-thema’s voor jouw bedrijf of organisatie, als eerste belangrijke stap. De kernthema’s van MVO zijn uitgewerkt in ISO 2600. 
-               Ook de Sustainable Development Goals (SDG’s) van de Verenigde Naties geven het brede kader van duurzaamheid aan. </p>
+            <p>Een onderdeel van MVO is dat je milieuzorg integreert in alle bedrijfsactiviteiten. In de wet is vastgelegd dat bedrijven en organisaties de milieubelasting van hun bedrijfsvoering moeten minimaliseren door:</p>
+            <ul>
+              <li>Beperken van gevaar en hinder</li>
+              <li>Besparen van energie</li>
+              <li>Preventie en scheiding van afval</li>
+              <li>Vervoermanagement</li>
+            </ul>
+            <p>Je doet een stap verder dan de wet door milieuzorg te integreren in:</p>
+            <ul>
+              <li>Innovatie van product of dienst, bijvoorbeeld verminderen van benodigd materiaal of mogelijk maken van hergebruik.</li>
+              <li>Afspraken met leveranciers o.a. inkopen van minder milieubelastende producten, verminderen van verpakkingen</li>
+              <li>Advies aan klanten, bijvoorbeeld over milieuvriendelijke alternatieven, duurzaam gebruik van product</li>
+            </ul>
             <div name="gender" onChange={this.handleInputChange}>
               <input type="radio" value="MALE" name="gender"/> Male
               <input type="radio" value="FEMALE" name="gender"/> Female
@@ -217,51 +226,45 @@ class App extends React.Component {
             id='checkbox2'
             checked={isOpened2}
             onChange={({target: {checked}}) => this.setState({isOpened2: checked})} />
-            <label for="checkbox2"><img src={collapse} className="imgButton" /></label>
-            <h3>MVO-DOELEN STELLEN</h3>
+            <label for="checkbox2"><img src={collapse} className="imgButton1" /></label>
+            <h3>Meer welzijn van de medewerkers</h3>
           <Collapse isOpened={isOpened2}>
           
           <div className='vraag'>
-            <h>Vraag 2</h>
-            <p>dit is vraag 2</p>
+            <p>Een onderdeel van MVO is dat het werkklimaat binnen jouw bedrijf of organisatie ruimte biedt aan:</p>
+            <ul>
+              <li>De inbreng en eigen verantwoordelijkheid van medewerkers</li>
+              <li>Persoonlijke ontwikkeling in brede zin, niet alleen gerelateerd aan de functie</li>
+              <li>Het combineren van arbeid met zorg en andere maatschappelijke taken, bijvoorbeeld door flexibele werktijden en mogelijkheid om parttime te werken</li>
+            </ul>
+            <p>In de wet is vastgelegd dat bedrijven goede arbeidsomstandigheden en de veiligheid moeten waarborgen. Je doet een stap verder als je aandacht geeft aan:</p>
+            <ul>
+              <li>Normen en waarden op de werkvloer; hoe gaan medewerkers met elkaar om</li>
+              <li>Het stimuleren van de gezondheid van medewerkers, bijvoorbeeld door gezonde voeding in de kantine, korting op fitness en sport, fietsplan, stoppen met roken pakket aanbieden</li>
+            </ul>
 
-            {/* <label>
-              Name:
-              <input name="user" type="text" value={this.state.username} onChange={this.handleInputChange}/>
-            </label> */}
           </div>
           </Collapse>
         </div>
 {/* ------------------------------------------------------------------------------------------ */}
         <div className='vraag'>
           <input
-              className="checkboxinvis"
-              type="checkbox"
-              id='checkbox3'
-              checked={isOpened3}
-              onChange={({target: {checked}}) => this.setState({isOpened3: checked})} />
-              <label for="checkbox3"><img src={collapse} className="imgButton" /></label>
-              <h3>C. MAATREGELEN UITVOEREN</h3>
-            <Collapse isOpened={isOpened3}>
+            className="checkboxinvis"
+            type="checkbox"
+            id='checkbox3'
+            checked={isOpened3}
+            onChange={({target: {checked}}) => this.setState({isOpened3: checked})} />
+            <label for="checkbox3"><img src={collapse} className="imgButton1" /></label>
+            <h3>Meer welzijn van mensen in productielanden</h3>
+          <Collapse isOpened={isOpened3}>
           
-          <label>
-            Pick your favorite flavor:
-            <select name="favourite" value={this.state.favourite} onChange={this.handleInputChange}>
-              <option value="grapefruit">Grapefruit</option>
-              <option value="lime">Lime</option>
-              <option value="coconut">Coconut</option>
-              <option value="mango">Mango</option>
-            </select>
-
-            <input type="submit" value="Submit" />
-          </label>
-
-          <div>
-            <img src = {thermometer} alt="thermometer" width="500" height="400"></img>
-          </div>
-          
-          <div>
-            <img src = {epicLine} alt="Line" width="100" height="10"></img>
+          <div className='vraag'>
+            <p>Bij MVO besteed je aandacht aan sociale aspecten in productielanden elders in de wereld:</p>
+            <ul>
+              <li>Let bij inkoop op de arbeidsomstandigheden waaronder producten en grondstoffen elders in de wereld worden gemaakt, denk bijvoorbeeld aan kinderarbeid en minimumloon. Dit kan bijvoorbeeld door met leveranciers in gesprek te gaan over de arbeidsomstandigheden in de keten of producten in te kopen met een Fair Trade of UTS Certified keurmerk.</li>
+              <li>Betaal een eerlijke prijs voor jouw ingekochte grondstoffen, producten en diensten.</li>
+              <li>Let bij inkoop van grondstoffen of producten uit risicolanden op misstanden zoals corruptie, geweld en mensenhandel. Sluit je aan bij initiatieven die deze misstanden bestrijden.</li>
+            </ul>
           </div>
 
           </Collapse>
@@ -274,52 +277,35 @@ class App extends React.Component {
               id='checkbox4'
               checked={isOpened4}
               onChange={({target: {checked}}) => this.setState({isOpened4: checked})} />
-              <label for="checkbox4"><img src={collapse} className="imgButton" /></label>
-              <h3>D. MONITOREN VAN DE VOORTGANG</h3>
+              <label for="checkbox4"><img src={collapse} className="imgButton1" /></label>
+              <h3>Meer welzijn van de maatschappij</h3>
             <Collapse isOpened={isOpened4}>
           
-          <label>
-            Pick your favorite flavor:
-            <select name="favourite" value={this.state.favourite} onChange={this.handleInputChange}>
-              <option value="grapefruit">Grapefruit</option>
-              <option value="lime">Lime</option>
-              <option value="coconut">Coconut</option>
-              <option value="mango">Mango</option>
-            </select>
-
-            <input type="submit" value="Submit" />
-          </label>
+          <div className='vraag'>
+            <p>Rekening houden met de maatschappij is de breedste pijler van MVO. Er zijn dan ook vele mogelijkheden om als bedrijf of organisatie een steentje bij te dragen aan een duurzamere maatschappij:</p>
+            <p>Je vernieuwt jouw product of dienst zodanig dat het leidt tot meer welzijn van de samenleving. Bijvoorbeeld door:</p>
+            <ul>
+              <li>Diervriendelijk produceren</li>
+              <li>Producten geschikt maken voor gehandicapten, ouderen</li>
+            </ul>
+            <p>Jouw bedrijf of organisatie levert een positieve bijdrage aan de directe omgeving. Bijvoorbeeld door:</p>
+            <ul>
+              <li>Groen aanleggen rond het bedrijf</li>
+              <li>Ondersteunen van buurtactiviteiten</li>
+            </ul>
+            <p>Jouw bedrijf of organisatie stimuleert positieve ontwikkelingen in de samenleving, bijvoorbeeld door:</p>
+            <ul>
+              <li>Inschakelen van bepaalde doelgroepen in het arbeidsproces, bijvoorbeeld WAO-ers, herintredende vrouwen, gehandicapten</li>
+              <li>Aanbieden van stage- en werkervaringsplaatsen</li>
+              <li>Faciliteiten en menskracht inzetten voor maatschappelijke doelen</li>
+            </ul>
+            <p>Veel bedrijven en organisaties voeren onbewust al activiteiten uit die als MVO kunnen worden aangemerkt. Bewust werken aan MVO levert extra duurzaamheidswinst op.</p>
+          </div>
 
           </Collapse>
         </div>
 {/* ----------------------------------------------------------------------------------------- */}
-        <div className='vraag'>
-          <input
-              className="checkboxinvis"
-              type="checkbox"
-              id='checkbox5'
-              checked={isOpened5}
-              onChange={({target: {checked}}) => this.setState({isOpened5: checked})} />
-              <label for="checkbox5"><img src={collapse} className="imgButton" /></label>
-              <h3>E. COMMUNICEREN OVER MVO</h3>
-            <Collapse isOpened={isOpened5}>
-          
-          <label>
-            Pick your favorite flavor:
-            <select name="favourite" value={this.state.favourite} onChange={this.handleInputChange}>
-              <option value="grapefruit">Grapefruit</option>
-              <option value="lime">Lime</option>
-              <option value="coconut">Coconut</option>
-              <option value="mango">Mango</option>
-            </select>
 
-            <input type="submit" value="Submit" />
-          </label>
-
-         
-
-          </Collapse>
-        </div>
         <img src = {this.createThermo()} alt="thermometer" className='thermo' ></img>
         <div>{this.customAdvise()}</div>
       </form>
