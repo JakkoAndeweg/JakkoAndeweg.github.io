@@ -199,13 +199,9 @@ class App extends React.Component {
             </ul>
             <div name="gender" onChange={this.handleInputChange}>
               <b><p>Vraag 1<br></br>Bent u al bezig met MVO in een of meerdere van deze manieren:</p></b>
-              <ul>
-                <li><b>Beperken van gevaar en hiner</b></li>
-                <li><b>Besparen van energie</b></li>
-                <li><b>Preventie en scheiding van afval</b></li>
-              </ul>
-              <input type="radio" value="JA" name="value"/> Ja
-              <input type="radio" value="NEE" name="value"/> Nee
+              <b><input type="radio" value="checkbox1" name="value"/> Beperken van gevaar en hinder</b><br></br>
+              <b><input type="radio" value="checkbox2" name="value"/> Besparen van energie</b><br></br>
+              <b><input type="radio" value="checkbox3" name="value"/> Preventie en scheiding van afval</b><br></br>
             </div>
           </div>
 
@@ -263,9 +259,9 @@ class App extends React.Component {
             </ul>
 
             <div name="gender" onChange={this.handleInputChange}>
-              <b><p>Vraag 3<br></br>Let u bij aankoop op de arbeidsomstandigheden, waaronder producten en grondstoffen elders in de wereld gemaakt worden?</p></b>
-              <input type="radio" value="JA" name="value"/> Ja
-              <input type="radio" value="NEE" name="value"/> Nee
+              <b><p>Vraag 3<br></br>Let u bij aankoop op de arbeidsomstandigheden, bijvoorbeeld producten en grondstoffen elders in de wereld gemaakt worden?</p></b>
+              <b><input type="radio" value="JA" name="value"/> Ja</b>
+              <b><input type="radio" value="NEE" name="value"/> Nee</b>
             </div>
 
           </div>
