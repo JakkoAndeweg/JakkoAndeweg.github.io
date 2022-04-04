@@ -8,8 +8,6 @@ import thermohoog from './pictures/thermo-hoog.png'
 import thermolaag from './pictures/thermo-laag.png'
 import thermomid from './pictures/thermo-mid.png'
 
-
-
 class App extends React.Component {
 
   static defaultProps = {
@@ -94,7 +92,6 @@ class App extends React.Component {
   }
   customAdvise()
   {
-
     var pointsArray = [this.createPoints(2),this.createPoints(3),this.createPoints(4)];
     
     var lowest = 0
@@ -158,22 +155,12 @@ class App extends React.Component {
 
   handleChange(event) {
     this.setState({value: event.target.value});
-    
   }
 
   handleSubmit(event) {
    
-  
-    // alert('A name was submitted: ' + this.state.user +
-    //       '\n their favourite food is:' + this.state.favourite +
-    //       '\n their gender is:' + this.state.gender+
-    //       '\n total points:' + (this.createPoints(1))
-    //       +
-    //       '\n' + this.customAdvise()); 
     event.preventDefault()
   }
-
-    
 
   render() {
 
@@ -211,8 +198,14 @@ class App extends React.Component {
               <li>Advies aan klanten, bijvoorbeeld over milieuvriendelijke alternatieven, duurzaam gebruik van product</li>
             </ul>
             <div name="gender" onChange={this.handleInputChange}>
-              <input type="radio" value="MALE" name="gender"/> Male
-              <input type="radio" value="FEMALE" name="gender"/> Female
+              <b><p>Vraag 1<br></br>Bent u al bezig met MVO in een of meerdere van deze manieren:</p></b>
+              <ul>
+                <li><b>Beperken van gevaar en hiner</b></li>
+                <li><b>Besparen van energie</b></li>
+                <li><b>Preventie en scheiding van afval</b></li>
+              </ul>
+              <input type="radio" value="JA" name="value"/> Ja
+              <input type="radio" value="NEE" name="value"/> Nee
             </div>
           </div>
 
@@ -242,7 +235,10 @@ class App extends React.Component {
               <li>Normen en waarden op de werkvloer; hoe gaan medewerkers met elkaar om</li>
               <li>Het stimuleren van de gezondheid van medewerkers, bijvoorbeeld door gezonde voeding in de kantine, korting op fitness en sport, fietsplan, stoppen met roken pakket aanbieden</li>
             </ul>
-
+            <label>
+              <b><p>vraag 2<br></br>Op welke manier geeft u aandacht aan goede arbeidsomstandigheden?</p></b>
+              <input name="user" type="text" value={this.state.username} onChange={this.handleInputChange}/>
+            </label>
           </div>
           </Collapse>
         </div>
@@ -265,6 +261,13 @@ class App extends React.Component {
               <li>Betaal een eerlijke prijs voor jouw ingekochte grondstoffen, producten en diensten.</li>
               <li>Let bij inkoop van grondstoffen of producten uit risicolanden op misstanden zoals corruptie, geweld en mensenhandel. Sluit je aan bij initiatieven die deze misstanden bestrijden.</li>
             </ul>
+
+            <div name="gender" onChange={this.handleInputChange}>
+              <b><p>Vraag 3<br></br>Let u bij aankoop op de arbeidsomstandigheden, waaronder producten en grondstoffen elders in de wereld gemaakt worden?</p></b>
+              <input type="radio" value="JA" name="value"/> Ja
+              <input type="radio" value="NEE" name="value"/> Nee
+            </div>
+
           </div>
 
           </Collapse>
@@ -300,6 +303,14 @@ class App extends React.Component {
               <li>Faciliteiten en menskracht inzetten voor maatschappelijke doelen</li>
             </ul>
             <p>Veel bedrijven en organisaties voeren onbewust al activiteiten uit die als MVO kunnen worden aangemerkt. Bewust werken aan MVO levert extra duurzaamheidswinst op.</p>
+
+            <b><p> vraag 4<br></br>Levert jou bedrijf een positieve bijdrage aan de omgeving door: </p></b>
+            <select name="favourite" value={this.state.favourite} onChange={this.handleInputChange}>
+              <option value="vraag1">Groen aanleggen rond het bedrijf</option>
+              <option value="vraag2">Producten geschikt maken voor gehandicapten</option>
+              <option value="vraag3">Ouderen</option>
+              <option value="vraag4">Geen</option>
+            </select>
           </div>
 
           </Collapse>
@@ -310,7 +321,6 @@ class App extends React.Component {
         <div>{this.customAdvise()}</div>
       </form>
       
-     
     );
   }
 }
