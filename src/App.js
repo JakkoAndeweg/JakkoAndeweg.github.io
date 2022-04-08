@@ -34,45 +34,59 @@ class App extends React.Component {
     var v1p = 0;
     var v2p = 0;
     var v3p = 0;
+    var v4p = 0;
   
    
-    if (this.state.gender == "MALE")
+    if (this.state.gender == "checkbox1")
     {
       v1p = 200
     }
-    else
+    else if (this.state.gender == "checkbox2")
     {
       v1p = 100
     }
+    else if (this.state.gender == "checkbox3")
+    {
+      v1p = 150
+    }
   
-  
-    if (this.state.user == 'yooo')
+    if (this.state.user != undefined)
     {
       v2p = 200
     }
     else 
     {
-      v2p=10
+      v2p=0
     }
   
   
-    if(this.state.favourite =="grapefruit")
-    {
-      v3p = 50
-    }
-    else if (this.state.favourite =="lime")
+    if(this.state.international =="JA")
     {
       v3p = 100
     }
-    else if (this.state.favourite =="coconut")
+    else if (this.state.international =="NEE")
     {
-      v3p = 150
-    }  
-    else if (this.state.favourite =="mango")
-    {
-      v3p = 200
+      v3p = 10
     }
-      var totalPoints = v1p + v2p + v3p;
+
+    if (this.state.favourite == "vraag1")
+    {
+      v4p = 200
+    }
+    else if (this.state.favourite == "vraag2")
+    {
+      v4p = 150
+    }
+    else if (this.state.favourite == "vraag3")
+    {
+      v4p = 150
+    }
+    else if (this.state.favourite == "vraag4")
+    {
+      v4p = 5
+    }
+    
+      var totalPoints = v1p + v2p + v3p + v4p;
       if (needed== 1)
       {
       return totalPoints
@@ -89,10 +103,14 @@ class App extends React.Component {
       {
         return v3p
       }
+      else if (needed==5)
+      {
+        return v4p
+      }
   }
   customAdvise()
   {
-    var pointsArray = [this.createPoints(2),this.createPoints(3),this.createPoints(4)];
+    var pointsArray = [this.createPoints(2),this.createPoints(3),this.createPoints(4), this.createPoints(5)];
     
     var lowest = 0
     for (var i=0; i<pointsArray.length; i++)
@@ -103,42 +121,43 @@ class App extends React.Component {
       }
     }
 
-    if(pointsArray[0]==0||pointsArray[1]==0||pointsArray[2]==0)
+    if(pointsArray[0]==0||pointsArray[1]==0||pointsArray[2]==0||pointsArray[3]==0)
     {
-      return "please fill in the questions"
+      return "please \n fill in the questions"
     }
     else{
     if(lowest==0)
     {
-      return "You are a Man named yooo who likes mangos or coconuts"
+      return "Uw bijdrage aan het milieu voelt misschien klein maar is zeer belangrijk \n Probeer de verwarming een graad lager te zetten, doe onderzoek naar groene daken of zoek naar biologische verpakkingsmiddelen"
     }
     else if (lowest==1)
     {
-      return "you are not named yooo"
+      return ""
     }
     else if (lowest==2)
     {
-      return "you like grapefruit"
+      return "Hoewel het garanderen van goede arbeidsomstandigheden geld, tijd en energie kost zal het gewaardeerd worden door uw consument \n Doe een extra onderzoek naar de bedrijven en locaties waar uw grondstoffen vandaan komen"
     }
+    else if(lowest==3)
+      {
+        return 'Het aanleggen van een groen park of het aannemen van ondergerepresenteerde groepen klinkt als meer moeite dan het waard is, \n maar een beetje extra groen geeft werknemers een gevoel van rust die zorgt voor betere prestaties en het intergreren van nieuwe groepen zorgt voor een verse blik binnen uw bedrijf.\t plaats een aantal planten in uw pand of onderzoek welke posities door minder validen bekleed kunnen worden.'
+      }
+      
     }
   }
 
   createThermo()
   { var totalPoints=this.createPoints(1)
     var meter = 'thermometer';
-    console.log(meter)
    
     if(totalPoints <=300){
       meter = thermolaag 
-      console.log(meter)
       return meter
-    }else if(totalPoints <=400){
+    }else if(totalPoints <=500){
       meter = thermomid
-      console.log(meter)
       return meter
     }else{
       meter = thermohoog
-      console.log(meter)
       return meter
     }
   }
@@ -199,9 +218,9 @@ class App extends React.Component {
             </ul>
             <div name="gender" onChange={this.handleInputChange}>
               <b><p>Vraag 1<br></br>Bent u al bezig met MVO in een of meerdere van deze manieren:</p></b>
-              <b><input type="radio" value="checkbox1" name="value"/> Beperken van gevaar en hinder</b><br></br>
-              <b><input type="radio" value="checkbox2" name="value"/> Besparen van energie</b><br></br>
-              <b><input type="radio" value="checkbox3" name="value"/> Preventie en scheiding van afval</b><br></br>
+              <b><input type="radio" value="checkbox1" name="gender"/> Beperken van gevaar en hinder</b><br></br>
+              <b><input type="radio" value="checkbox2" name="gender"/> Besparen van energie</b><br></br>
+              <b><input type="radio" value="checkbox3" name="gender"/> Preventie en scheiding van afval</b><br></br>
             </div>
           </div>
 
@@ -258,10 +277,10 @@ class App extends React.Component {
               <li>Let bij inkoop van grondstoffen of producten uit risicolanden op misstanden zoals corruptie, geweld en mensenhandel. Sluit je aan bij initiatieven die deze misstanden bestrijden.</li>
             </ul>
 
-            <div name="gender" onChange={this.handleInputChange}>
+            <div name="international" value={this.state.international} onChange={this.handleInputChange}>
               <b><p>Vraag 3<br></br>Let u bij aankoop op de arbeidsomstandigheden, bijvoorbeeld producten en grondstoffen elders in de wereld gemaakt worden?</p></b>
-              <b><input type="radio" value="JA" name="value"/> Ja</b>
-              <b><input type="radio" value="NEE" name="value"/> Nee</b>
+              <b><input type="radio" value="JA" name="international"/> Ja</b>
+              <b><input type="radio" value="NEE" name="international"/> Nee</b>
             </div>
 
           </div>
@@ -308,13 +327,15 @@ class App extends React.Component {
               <option value="vraag4">Geen</option>
             </select>
           </div>
-
+            
           </Collapse>
         </div>
 {/* ----------------------------------------------------------------------------------------- */}
-
+<div className='vraag'> 
         <img src = {this.createThermo()} alt="thermometer" className='thermo' ></img>
-        <div>{this.customAdvise()}</div>
+        <div  ><h2>{this.customAdvise()}</h2></div>
+</div>
+       
       </form>
       
     );
